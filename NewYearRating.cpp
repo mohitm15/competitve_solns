@@ -1,21 +1,6 @@
 //SOLUTION BY MOHIT MAROLIYA
-#include <iostream> 
-#include <cstdio>
-#include <string>
-#include <sstream>
-#include <vector>
-#include <list>
-#include <set>
-#include <map>
-#include <queue>
-#include <stack>
-#include <bitset>
-#include <numeric>
-#include <iterator>
-#include <algorithm>
-#include <cmath>
-#include <chrono>
-#include <cassert>
+#include <bits/stdc++.h> 
+
 
 using namespace std;
 using ll = long long;
