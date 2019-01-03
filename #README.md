@@ -1,4 +1,4 @@
-This is the hub of Solutions of Codeforeces Problems. This can be helpfull for budding programmers like me.
+This is the hub of Solutions of Codeforeces+ COdechef Problems(folder named codechef). This can be helpfull for budding programmers like me.
 
 - - - - - - - - - -
 
