@@ -21,7 +21,6 @@ int main()
     for(int i=0;i<q;i++)
     {
       std::cin >> dead >> req;
-        //itne din tk   >> itne hone chahiye
       if(dead<d[0])
       {
         std::cout << "Go Sleep" << '\n';
