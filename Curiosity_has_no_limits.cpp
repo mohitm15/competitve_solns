@@ -46,11 +46,10 @@ int main()
 
             for(int i = 1; i <= no_of_elements; i++)
                 cout << T[i] << " ";
-
             return 0;
         }
     }
 
-    cout << "NO\n";
+    cout << "NO\n"; 
     return 0;
 }
