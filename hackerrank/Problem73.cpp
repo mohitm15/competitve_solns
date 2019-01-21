@@ -23,7 +23,6 @@ int euler(int x){
 
 }
 
-// https://en.wikipedia.org/wiki/Farey_sequence
 int main(){
     int N = 1e6 + 10;
     vector<ll> v(N, 0);
