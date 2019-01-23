@@ -1,5 +1,7 @@
-//contest: Codeforces Round #482 (Div. 2), problem: (A) Pizza, Pizza, Pizza!!!, Happy New Year!, #
-/USE PYTHON 3.0 COMPILER
+"""
+contest: Codeforces Round #482 (Div. 2), problem: (A) Pizza, Pizza, Pizza!!!, Happy New Year!, #
+USE PYTHON 3.0 COMPILER
+"""
 
 
 n = int(input())
