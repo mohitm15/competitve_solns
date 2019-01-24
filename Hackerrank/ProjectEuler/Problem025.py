@@ -1,4 +1,4 @@
-// By Mohit Maroliya
+#By Mohit Maroliya
 
 t = int(input())
 fibs = {}
