@@ -11,13 +11,7 @@
 #include <algorithm>
 using namespace std;
 typedef long long ll;
-typedef pair<int, int> ii;
-typedef pair<double, double> dd;
-typedef vector<ll> vll;
-typedef vector<int> vi;
-typedef vector<ii> vii;
-typedef vector<vi> vvi;
-typedef vector<vii> vvii;
+
 
 //const int M = 5e6 +3;
 const int M = 5e6 +5;
