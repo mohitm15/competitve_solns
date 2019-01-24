@@ -1,6 +1,6 @@
-"""
-By Mohit Maroliya
-"""
+
+#By Mohit Maroliya
+
 
 n = int(input())
 
