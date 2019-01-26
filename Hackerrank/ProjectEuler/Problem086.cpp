@@ -5,27 +5,18 @@
 #include <vector>
 #include <iostream>
 
-// http://oeis.org/A143714
 
 // how many combinations a,b,c exist for b_c = b + c
 unsigned int combinations(unsigned int a, unsigned int b_c)
 {
-  // the longest side must be a => if 2a < b + c then either b or c (or both !) would be longer than a
+  
   if (2*a < b_c)
     return 0;
 
-  // if a is longer than b+c:
-  // any combination (b,c) where b >= c and b+c = b_c produces a valid cuboid (a,b,c),
-  // there are (b+c) / 2 such combinations
-  // e.g. b_c =  7 => (b,c) = {(6,1), (5,2), (4,3)}               =>  7/2 = 3 elements
-  // e.g. b_c = 10 => (b,c) = {(9,1), (8,2), (7,3), (6,4), (5,5)} => 10/2 = 5 elements
+
   if (a >= b_c)
     return b_c / 2;
 
-  // now a < b+c:
-  // a is still the longest side, but some combinations of (b,c) must be rejected:
-  // a >= b >= c means that a >= b >= (b+c)/2 because b >= c
-  // e.g. a = 6 and b_c = 8 => (a,b,c) = {(6,6,2), (6,5,3), (6,4,4)}, rejected (6,7,1)
   return a - (b_c - 1) / 2; // b+c minus one because b = c is not rejected
 }
 
@@ -34,11 +25,6 @@ unsigned long long countSingle(unsigned int a)
 {
   unsigned long long sum = 0;
 
-  // we encounter the same sum b+c many times (for different b and c)
-  // lets try it the other way around:
-  // step through all sums b+c and figure out the possible combinations of b and c
-  // since a >= b and a >= c we also know 2*a >= b+c
-  // I'll call b+c from now on "b_c"
   for (unsigned int b_c = 1; b_c <= 2 * a; b_c++)
   {
     // triangle with right angle ?
