@@ -1,4 +1,4 @@
-//By mOhit Maroliya
+#By mOhit Maroliya
 
 N = 30000 + 5
 v = [ (i//3 + 1)*2 if i%3 == 1 else 1 for i in range(N)]
