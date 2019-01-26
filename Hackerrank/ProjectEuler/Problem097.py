@@ -31,6 +31,7 @@ for k in range(t):
 
 print("%012d" % s)
 
-"""
-Showing Runtime Error
-"""
+#-------------------------------
+#     Showing Runtime Error
+#-------------------------------
+
