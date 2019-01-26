@@ -1,4 +1,4 @@
-// By MM
+// By Mohit Maroliya
 
 #include <bits/stdc++.h>
 
