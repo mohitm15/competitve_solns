@@ -1,4 +1,4 @@
-// THIS IS THE PROBLEM OF DEC COOK-OFF 18
+// By Mohit Maroliya
 
 #include<bits/stdc++.h>
 using namespace std;
