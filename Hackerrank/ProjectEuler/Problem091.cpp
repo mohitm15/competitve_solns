@@ -1,6 +1,8 @@
+
 #include <iostream>
 #include <algorithm>
 
+// greatest common divisor
 unsigned int gcd(unsigned int a, unsigned int b)
 {
   while (a != 0)
@@ -17,13 +19,14 @@ int main()
   unsigned int size = 50;
   std::cin >> size;
 
- =
+
   unsigned int result = size*size;
 
-  
   result += size*size;
-  
+ 
   result += size*size;
+
+ 
 
   for (unsigned int p_x = 1; p_x <= size; p_x++)
     for (unsigned int p_y = 1; p_y <= p_x; p_y++)
@@ -35,7 +38,6 @@ int main()
 
       unsigned int found = 0;
 
-     
       int q_x = p_x - deltaY;
       int q_y = p_y + deltaX;
       while (q_x >= 0 && q_y <= (int)size)
@@ -45,6 +47,7 @@ int main()
         q_y += deltaX;
       }
 
+ 
       q_x = p_x + deltaY;
       q_y = p_y - deltaX;
       while (q_y >= 0 && q_x <= (int)size)
@@ -54,7 +57,7 @@ int main()
         q_y -= deltaX;
       }
 
-  
+      
       if (p_x != p_y)
         found *= 2;
 
@@ -64,4 +67,6 @@ int main()
   std::cout << result << std::endl;
 
   return 0;
+}
+
 }
