@@ -1,25 +1,11 @@
 //By mohit marliya
 
-#include <cstdio>
-#include <iostream>
-#include <sstream>
-#include <string>
-#include <cmath>
-#include <cassert>
-#include <algorithm>
-#include <vector>
-#include <set>
-#include <map>
-#include <deque>
+#include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
-typedef pair<double, double> dd;
 typedef pair<int, int> ii;
-typedef pair<int, ii> iii;
 typedef vector<int> vi;
 typedef vector<ii> vii;
-typedef vector<vi> vvi;
-typedef vector<vii> vvii;
 
 vii v;
 const double EPS = 1e-6;
