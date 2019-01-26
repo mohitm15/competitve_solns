@@ -1,5 +1,3 @@
-//By Mohit Maroliya
-
 
 #include <cstdio>
 #include <iostream>
