@@ -24,3 +24,4 @@ std::cout << c[s];
 }
 std::cout << '\n';
 return 0;
+}
