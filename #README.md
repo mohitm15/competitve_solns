@@ -1,7 +1,12 @@
-This is the hub of Solutions of Codeforeces+ COdechef Problems(folder named codechef). This can be helpfull for budding programmers like me.
+#README FILE
+
+
+This is the hub of Solutions of `Codeforeces`+ `Codechef` Problems(folder named codechef). This can be helpfull for budding programmers like me.
+
+Also solutions of the <strong> Project Euler+ </strong>, a competition of `Hackerrank` is also being uoloaded.
 
 - - - - - - - - - -
 
-#How to search..
+***How to search..
 
 Just Type the Name of the problems and you will find solution corresponding to that problems.
