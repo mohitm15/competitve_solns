@@ -1,5 +1,6 @@
 //By Mohit Maroliya
 
+
 //contest: Codeforces Round #529 (Div. 3), problem: (A) Repeating Cipher, Accepted, #
 
 #include<iostream>
