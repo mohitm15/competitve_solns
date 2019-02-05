@@ -1,3 +1,5 @@
+//BY Mohit MAroliya
+
 //contest: Codeforces Round #257 (Div. 2), problem: (B) Jzzhu and Sequences, Accepted, #
  #include <iostream>
 #include <cstdio>
