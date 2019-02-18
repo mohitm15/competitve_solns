@@ -17,5 +17,4 @@ Just Type the Name of the problems and you will find solution corresponding to t
 
 Now I am also trying to solve various contests over codechef/codeforces and posting the solutions here ,so that anyone can have look over it.
 
-
-<i><strong>Happy Coding!!</i></strong> :smile:
+:smile:<i><strong>  Happy Coding!!</i></strong> :smile:
