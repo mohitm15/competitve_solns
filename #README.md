@@ -10,3 +10,9 @@ Also solutions of the <strong> Project Euler+ </strong>, a competition of `Hacke
 ***How to search***
 
 Just Type the Name of the problems and you will find solution corresponding to that problems.
+
+- - -- - - - -
+
+**New Feature Added**
+
+Now I am also trying to solve various contests over codechef/codeforces and posting the solutions here ,so that anyone can have look over it.
