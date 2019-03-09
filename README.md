@@ -16,5 +16,6 @@ Just Type the Name of the problems and you will find solution corresponding to t
 **New Feature Added**
 
 Now I am also trying to solve various contests over codechef/codeforces and posting the solutions here ,so that anyone can have look over it.
+Solutions to the 30 Days of code that I had recently completed is uploaded now in hackerrank folder.
 
 :smile:<i><strong>  Happy Coding!!</i></strong> :smile:
