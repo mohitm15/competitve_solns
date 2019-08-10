@@ -20,3 +20,6 @@ Now I am also trying to solve various contests over codechef/codeforces and post
 Solutions to the 30 Days of code that I had recently completed is uploaded now in hackerrank folder.
 
 :smile:<i><strong>  Happy Coding!!</i></strong> :smile:
+
+
+:copyright: :m:ohit_:m:aroliya
