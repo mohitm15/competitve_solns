@@ -42,6 +42,8 @@ int main()
             flag2=true;
         }
         //cout<<s[s.length()-1]<<"--";
+        if(zero>1)
+        flag2=true;
         if(sum%3 == 0)
         flag3=true;
         if(flag3==true && flag2==true)
