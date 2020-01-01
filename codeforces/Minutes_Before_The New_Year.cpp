@@ -1,4 +1,4 @@
-// contest: Codeforces Round #611 (Div. 3), problem: (A) ,A New Year, Accepted,
+// contest: Codeforces Round #611 (Div. 3), problem: (A) Minutes Before the New Year, Happy New Year!, #
 // ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
 // ░░░░░░░▄▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▄░░░░░░
 // ░░░░░░█░░▄▀▀▀▀▀▀▀▀▀▀▀▀▄░░█░░░░░
