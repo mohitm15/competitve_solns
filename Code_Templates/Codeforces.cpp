@@ -55,7 +55,10 @@ const int MAXN = 1e6 + 3;
 #define fbo find_by_order
 #define ook order_of_key
 
-/*
-ios_base::sync_with_stdio(false);
-    cin.tie(NULL);
-    */  
+int main(){
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	return 0;
+}  
