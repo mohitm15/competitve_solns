@@ -19,6 +19,9 @@ Now I am also trying to solve various contests over codechef/codeforces and post
 
 Solutions to the 30 Days of code that I had recently completed is uploaded now in hackerrank folder.
 
+Various Code Templates Followed By diiferent Coding platform experts has been uploaded.
+
+
 :smile:<i><strong>  Happy Coding!!</i></strong> :smile:
 
 
