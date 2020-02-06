@@ -1,7 +1,7 @@
 # README FILE OF THIS REPOSITORY
 
 
-This is the hub of Solutions of `Codeforeces`+ `Codechef`+`InterviewBit` Problems(folder named codechef). This can be helpfull for budding programmers like me.
+This is the hub of Solutions of `Codeforeces`+ `Codechef`+`InterviewBit` + `Hackerrank` Problems(folder named codechef). This can be helpfull for budding programmers like me.
 
 Also solutions of the <strong> Project Euler+ </strong>, a competition of `Hackerrank` is also being uploaded.
 
