@@ -1,4 +1,4 @@
-# README FILE OF THIS REPOSITORY
+# README FILE OF THIS REPOSITORY : COMPETITIVE SOLUTIONS
 
 
 This is the hub of Solutions of `Codeforeces`+ `Codechef`+`InterviewBit` + `Hackerrank` Problems(folder named codechef). This can be helpfull for budding programmers like me.
