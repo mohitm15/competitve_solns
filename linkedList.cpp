@@ -82,7 +82,7 @@ void insertAtPosition(ListNode*A,int value,int position)
     }
 }
 //////////4
-void deleteLastNode(ListNode* A)
+void deleteLastNode1(ListNode* A)
 {
     ListNode* prev;
     while(A->next!=NULL)
@@ -91,6 +91,15 @@ void deleteLastNode(ListNode* A)
         A = A->next;
     }
     prev->next = NULL;
+}
+//Another approach:
+void deleteLastNode2(ListNode* A)
+{
+    while(A->next->next !=NULL)
+    {
+        A=A->next;
+    }
+    A->next = NULL;
 }
 //////////5
 void deleteFrontNode(ListNode* A)
@@ -251,6 +260,21 @@ ListNode * mergeLinkedList(ListNode *firsthalf,ListNode *secondhalf)
         
     return finalList;
 }
+//another approach
+ListNode *mergeLinkedList2(ListNode* A, ListNode* B) 
+{
+    if(A == NULL) return B;
+    if(B == NULL) return A;
+
+    ListNode *tempA = A;
+    while(tempA->next !=NULL)
+    {
+        tempA = tempA->next;
+    }
+    tempA->next = B;
+    return A;
+}
+//merged sort using recursion
 ListNode* sortLinkedList(ListNode*A)
 {
     if(A ==NULL || A->next==NULL) return A;
@@ -301,6 +325,7 @@ ListNode* mergeTwoSortedLinkList(ListNode*A,ListNode *B)
     return finalList;
 }
 //////////14
+//gives union of list with sort
 ListNode* unionOfTwoList(ListNode*A,ListNode*B)
 {
     A = sortLinkedList(A);
@@ -356,6 +381,7 @@ ListNode* unionOfTwoList(ListNode*A,ListNode*B)
     return finalList;
 }
 //////////15 yeh problem de rahah hai
+//beacuse if l1: 1->2->3->4 and l2: 4->8->12
 ListNode* intersectionOfTwoList(ListNode*A, ListNode*B)
 {
     A = sortLinkedList(A);
@@ -502,7 +528,7 @@ int getLengthofLoop(ListNode *A)
         fast = fast->next->next;
         if(slow->val == fast->val)
             break;
-    }
+    } //we get the intersection point where (slow === fast)
     if(slow == fast)
     {
         while(slow->next!=fast)
@@ -516,6 +542,7 @@ int getLengthofLoop(ListNode *A)
 }
 //////////23
 ListNode* removeLoop(ListNode*A)
+
 {
     if(A == NULL || A->next ==NULL) return 0;
     ListNode* slow=A;
@@ -530,6 +557,13 @@ ListNode* removeLoop(ListNode*A)
     }
     if(slow == fast)
     {
+        //if first node is head of loop
+        if(fast == st) {
+            while(slow->next!= st)
+            {slow =slow->next;}
+            slow->next = NULL;
+        }
+
         ListNode* meetingPt = fast;
         while (A->next != meetingPt->next)
         {
@@ -575,7 +609,7 @@ bool ifListisPallindrome(ListNode *A)
         stk.push(start);
         start=start->next;
     }
-    if(fast->next == NULL) stk.pop();
+    if(fast->next == NULL) stk.pop(); //if len is odd then pop the middle one
     slow = slow->next;
     while(slow!=NULL)
     {
@@ -861,7 +895,7 @@ ListNode* seperateAlternateNodes(ListNode* A)
     int cnt = 0;
     while(curr!=NULL)
     {
-        if(cnt&1)
+        if(cnt&1) //for index like 1,3,5..
         {
             if(firstSt == NULL)
             {
@@ -936,7 +970,7 @@ ListNode* mergeAlternateNodesOfTwoList(ListNode* A,ListNode* B)
         A = A->next;
         temp = temp->next;
     }
-    if(A==NULL)
+    if(A==NULL)   //if A finishes early
     {
         while(B!=NULL)
         {
@@ -944,9 +978,9 @@ ListNode* mergeAlternateNodesOfTwoList(ListNode* A,ListNode* B)
             B = B->next;
         }
     }
-    else
+    else //if B finishes early
     {
-        while (A!=NULL)
+        while (A!=NULL) 
         {
             temp->next = A;
             A = A->next;
@@ -961,13 +995,14 @@ int getNumberAfterAddingOneToList(ListNode* A)
 {
     if(A == NULL) return 1;
     int rs = A->val + getNumberAfterAddingOneToList(A->next);
+    cout<<"rs = "<<rs<<endl;
     A->val = rs%10;
     return rs/10;
 }
 ListNode* PlusOneLinkedList(ListNode *A)
 {
     int c = getNumberAfterAddingOneToList(A);
-    if (c == 1)
+    if (c == 1) //for carry +1
     {
         ListNode *begin = createNode(1);
         begin->next = A;
@@ -975,7 +1010,7 @@ ListNode* PlusOneLinkedList(ListNode *A)
     }
     return A;
 }
-//////////41 vry imp
+//////////41 very imp
 ListNode* addTwoLinkedList(ListNode *A,ListNode *B)
 {
     if(A == NULL) return B;
@@ -995,7 +1030,7 @@ ListNode* addTwoLinkedList(ListNode *A,ListNode *B)
         temp->next = createNode(dig);
         temp = temp->next;
     }
-    if(A->next==NULL)
+    if(A->next==NULL) //if A finishes early
     {
         while(B->next!=NULL)
         {
@@ -1006,7 +1041,7 @@ ListNode* addTwoLinkedList(ListNode *A,ListNode *B)
             temp = temp->next;
         }
     }
-    else if(B->next==NULL)
+    else if(B->next==NULL) //if B finishes early
     {
         while (A->next!=NULL)
         {
@@ -1159,14 +1194,14 @@ int countPairOfGivenSumFromTwoLinkedList(ListNode* A,ListNode*B,int givenSum)
     unordered_map<int,int> umap;
     while(B!=NULL)
     {
-        if(umap.find(B->val)== umap.end())
+        if(umap.find(B->val)== umap.end()) //not founded
             umap[B->val]=1;
         B= B->next;
     }
     int ans = 0;
     while(A!=NULL)
     {
-        if(umap.find(givenSum - (A->val))!=umap.end())
+        if(umap.find(givenSum - (A->val))!=umap.end())  //founded
             ans++;
         A = A->next;
     }
@@ -1623,54 +1658,60 @@ int main()
 {
     ios::sync_with_stdio(false);
     ListNode *head = NULL;
-    head = insertNode(1,head);
-    head = insertNode(2,head);
-    head = insertNode(3,head);
-    head = insertNode(2,head);
-    head = insertNode(1,head);
-    head = insertNode(3,head);
-    //head = insertNode(68,head);
+    head = insertNode(9,head);
+    head = insertNode(9,head);
+    head = insertNode(9,head);
+    //head = insertNode(9,head);
+    //head = insertNode(9,head);
+    //head = insertNode(9,head);
+    //head = insertNode(9,head);
     //head->next->next->next->next->next = head->next;
     ListNode *head2 = NULL;
-    head2 = insertNode(211,head2);
+    head2 = insertNode(1,head2);
     head2 = insertNode(4,head2);
     head2 = insertNode(1502,head2);
     head2 = insertNode(27,head2);
     head2 = insertNode(67,head2);
 
-    cout<<"Original List 1 = ";
+    cout<<"Original List1 = ";
     printList(head);
     cout<<endl;
-    cout<<"Original List 2 = ";
+    cout<<"Original List2 = ";
     printList(head2);
     cout<<endl;
     //head = insertNode(22,head);
     //printList(head);
-    // head = insertAtFront(head,44);
-    // printList(head);
+     //head = insertAtFront(head,44);
+     //printList(head);
+     //cout<<endl;
     //insertAtPosition(head,36,1);
-    //deleteLastNode(head);
+    //deleteLastNode2(head);
+    //printList(head);
     //deleteFrontNode(head); print in the funvtion
     //printList(head);
     //deleteAtGivenPosition(head,3);
     // int c = sizeofList(head);
     // cout<<c<<endl;
-    // ListNode *ans = rotateListClockwiseByKNodes(head,2);
-    // printList(ans);
+    //ListNode *ans = rotateListClockwiseByKNodes(head,2);
+    //printList(ans);
     // ListNode *ans = rotateListAntiClockwiseByKNodes(head,3);
     // printList(ans);
     // ListNode *ans = reverseLinkedListRecursively(head);
     // printList(ans);
-    // ListNode* es = middleNodeOfList(head);
-    // cout<<es->val<<endl;
+    //ListNode* es = middleNodeOfList(head);
+    //cout<<es->val<<endl;
+    // ListNode *mergeList = mergeLinkedList2(head, head2);
+    // printList(mergeList);
     // ListNode* sortedList = sortLinkedList(head);
     // printList(sortedList);
-    ListNode *mergedlist = mergeTwoSortedLinkList(head,head2);
-    printList(mergedlist);
-    // ListNode* ans = intersectionOfTwoList(head,head2);
-    // printList(ans);
-    // ListNode* re = getLowestIntersectionNode(head,head2);
-    // cout<<re->val<<endl;
+    // ListNode *mergedlist = mergeTwoSortedLinkList(head,head2);
+    // printList(mergedlist);
+    //ListNode *unionList = unionOfTwoList(head, head2);
+    //printList(unionList);
+    //  ListNode* ans = intersectionOfTwoList(head,head2);
+    //  printList(ans);
+    //  ListNode* re = getLowestIntersectionNode(head,head2);
+    //  cout<<re->val<<endl;
     // ListNode * rt = removeDuplicatedFromSortedList(head);
     // printList(head);
     // ListNode* yu = removeDuplicatesFromUnsortedList(head);
@@ -1689,8 +1730,8 @@ int main()
     // printList(sd);
     // bool df = ifListisPallindrome(head);
     // cout<<df<<endl;
-    // ListNode *fg = deleteNodeWithGreaterValuesOnTheirRightSide(head);
-    // printList(fg);
+    //ListNode *fg = deleteNodeWithGreaterValuesOnTheirRightSide(head);
+    //printList(fg);
     // ListNode *gh = pairwiseSwap(head);
     // printList(gh);
     // ListNode*hj = deleteAlternateNode(head);
