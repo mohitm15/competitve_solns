@@ -37,7 +37,7 @@ TreeNode* createNode(int value)
 	// a->right = NULL;
 	return a;
 }
-///////////////////////
+///////////////////////1
 TreeNode* insertNode(TreeNode *root, int value) 
 { 
 	if(!root) 
@@ -51,7 +51,7 @@ TreeNode* insertNode(TreeNode *root, int value)
 	
     return root; 
 } 
-/////////////////////
+/////////////////////2
 void Inorder(TreeNode *root) 
 { 
 	if(!root) 
@@ -62,7 +62,7 @@ void Inorder(TreeNode *root)
 	cout << root->val << endl; 
 	Inorder(root->right); 
 } 	
-/////////////////////
+/////////////////////3
 void inorderWithVectorUtil(TreeNode *A,vector<int> &vec)
 {
 	if(A == NULL) return ;
@@ -78,41 +78,38 @@ vector<int> inorderWithVector(TreeNode*A)
 	inorderWithVectorUtil(A,ans);
 	return ans;
 }
-/////////////////////
+/////////////////////4
 int sumOfAllNodes(TreeNode* A)
 {
 	if(A == NULL) return 0;
 	return A->val + sumOfAllNodes(A->left)+sumOfAllNodes(A->right);
 }
-/////////////////////
+/////////////////////5
 int diffOfEvenOdddLevelValuesSum(TreeNode *A)
 {	
 	if(A==NULL) return 0;
 	return A->val - diffOfEvenOdddLevelValuesSum(A->left) - diffOfEvenOdddLevelValuesSum(A->right);
 }
-/////////////////////
+/////////////////////6
 int numberOfAllNodes(TreeNode* A)
 {
 	if(A == NULL) return 0;
 	return 1 + numberOfAllNodes(A->left)+numberOfAllNodes(A->right);
 }
-/////////////////////
-
+/////////////////////7
 int numberOfLeafNodes(TreeNode* A)
 {
 	if(A == NULL) return 0;
 	if(A->left == NULL && A->right == NULL) return 1;
 	return numberOfLeafNodes(A->left)+numberOfLeafNodes(A->right);
 }
-
-/////////////////////
+/////////////////////8
 int heightofTree(TreeNode *A)	//IMPORTANT
 {
 	if(A == NULL) return -1;
 	return max(heightofTree(A->left),heightofTree(A->right))+ 1;
 }
 /////////////////////
-
 void printElementsAtGivenLevel(TreeNode *A,int level)
 {
 	if(A == NULL) return;
@@ -121,7 +118,6 @@ void printElementsAtGivenLevel(TreeNode *A,int level)
 	printElementsAtGivenLevel(A->right,level-1);
 }
 ////////////////
-
 void printLevelOrder(TreeNode*A)
 {
 	if(A == NULL) return;
@@ -157,11 +153,44 @@ void printLevelOrderUsingQueue(TreeNode* A)	//IMPORTANT
 		cout<<endl;
 	}
 }
+////////////// in reverse order
+void printLevelReverseOrderUsingQueue(TreeNode* A) {
+	if(A==NULL) return;
+	queue<TreeNode*> q;
+	stack<TreeNode*> s;
+	q.push(A);
+	while(true)
+	{
+		int cnt = q.size();
+		if(cnt == 0) break;
+		while(cnt > 0) {
+			TreeNode *queuefront = q.front();
+			q.pop();
+			//cout<<queuefront->val<<" ";
+			s.push(queuefront);
+			if(queuefront->right != NULL) 
+				q.push(queuefront->right);
+			if(queuefront->left != NULL ) 
+				q.push(queuefront->left);
+			cnt--;
+		}
+		//cout<<endl;
+	}
+	while(s.size() != 0) {
+		if(s.size() == 1) //to avoid last comma in answer
+			cout<<s.top()->val;
+		else
+			cout<<s.top()->val<<", ";
+		s.pop();
+	}
+	cout<<endl;
+}
 ////////////////////
 int maxLevelleft = 0;
 void leftView(TreeNode* A,int currentlevel)	//IMPORTANT
 {
 	if(A == NULL) return ;
+	//cout<<"AT "<<A->val<<" : cv - "<<currentlevel<<" , maxl - "<<maxLevelleft<<endl;
 	if(currentlevel>=maxLevelleft)
 	{
 		cout<<A->val<<" ";
@@ -171,15 +200,15 @@ void leftView(TreeNode* A,int currentlevel)	//IMPORTANT
 	leftView(A->right,currentlevel+1);
 }
 //////////////////
-int maxLevel=0;
+int maxLevelRight=0;
 void rightView(TreeNode*A ,int currentLevel)
 {
 	if(A == NULL) return ;
 	
-	if(currentLevel>=maxLevel)
+	if(currentLevel>=maxLevelRight)
 	{
 		cout<<A->val<<" ";
-		maxLevel++;
+		maxLevelRight++;
 	}
 	rightView(A->right,currentLevel+1);
 	rightView(A->left,currentLevel+1);
@@ -207,11 +236,12 @@ void inorderWithoutRecursion(TreeNode* A)	//IMPORTANT
 			while(temp!=NULL)
 			{
 				stk.push(temp);
+				//cout<<stk.top()->val<<" ";
 				temp = temp->left;
 			}
 		}
-
 	}
+
 }
 /////////////////////
 void postorderWithoutRecursion(TreeNode* A)	//IMPORTANT
@@ -222,11 +252,11 @@ void postorderWithoutRecursion(TreeNode* A)	//IMPORTANT
 	s1.push(A);
 	while(s1.size()>0)
 	{
-		TreeNode* temp = s1.top();
+		TreeNode* t = s1.top();
 		s1.pop();
-		if(temp->left != NULL) s1.push(temp->left);
-		if(temp->right != NULL) s1.push(temp->right);
-		s2.push(temp);
+		if(t->left != NULL) s1.push(t->left);
+		if(t->right != NULL) s1.push(t->right);
+		s2.push(t);
 	}
 	while(!s2.empty())
 	{
@@ -283,7 +313,8 @@ void topView(TreeNode *A)
 		q.pop();
 		int hd = temp->heightofnode;
         
-        if(mp.find(hd)==mp.end())
+		//it is inserting the ans in map, the ans includes the first value Only for each heoghtofnode pointer 
+        if(mp.find(hd)==mp.end())  //if value not found in map 	
             mp[hd] = temp->val;
         
         if(temp->left !=NULL)
@@ -304,6 +335,38 @@ void topView(TreeNode *A)
     cout<<endl;
 }
 
+void topView1(TreeNode* A) {
+	if(A == NULL) return;
+
+	queue<TreeNode*> q;
+	map<int,int> mp;
+	q.push(A);
+	while(q.size()>0) {
+		TreeNode *temp = q.front();
+		q.pop();
+
+		int hd = temp->heightofnode;
+
+		if(mp.find(hd) == mp.end()){
+			mp[hd] = temp->val;
+		}
+
+		if(temp->left!=NULL) {
+			q.push(temp->left);
+			temp->left->heightofnode = hd-1;
+		}
+		if(temp->right !=NULL) {
+			q.push(temp->right);
+			temp->right->heightofnode = hd+1;
+		}
+	}
+
+	for(auto it=mp.begin();it!=mp.end();it++)
+	{
+		cout<<it->second<<" ";
+	}
+
+}
 ////////////
 void verticalTree(TreeNode* A)	//IMPORTANT
 {
@@ -401,6 +464,13 @@ bool searchElementIterative(TreeNode* A,int value)
 }
 ///////////
 
+void printLeafNodes(TreeNode *A) {
+	if(A == NULL) return;
+	if(A->left == NULL && A->right == NULL) cout<<A->val<<" ";
+	printLeafNodes(A->left);
+	printLeafNodes(A->right);
+}
+//////////
 void printSpiral(TreeNode* A)
 {
 	stack<TreeNode*> s1;
@@ -455,7 +525,7 @@ bool isIsomorphicTree(TreeNode*A, TreeNode *B)
 }
 
 ///////////
-
+//same as printLevelOrder
 int heightOfTreeIterative(TreeNode* A)	//IMPORTANT
 {
 	int ht=0;
@@ -496,6 +566,10 @@ int diameter(TreeNode *A)	//IMPORTANT
 	int rh = diameter(A->right);
 	mx = max(mx,lh+rh+1);	
 	return max(lh,rh)+1;
+}
+void printDiameter(TreeNode *A) {
+	int answer = diameter(A);
+	cout<<"diameter = "<<mx<<endl;
 }
 ////////
  
@@ -606,10 +680,11 @@ int minHeightOfTree(TreeNode*A,vector<int>&temp,int index)
 	minHeightOfTree(A->right,temp,index+1);
 	return mn_ht;
 }
+//my approach
 int minHeightOfTree_other_approach(TreeNode *A)
 {
-	if(A == NULL) return 0;
 	if(A == NULL) return 1;
+	if(A->left == NULL && A->right == NULL ) return 1;
 	int lh = minHeightOfTree_other_approach(A->left);
 	int rh = minHeightOfTree_other_approach(A->right);
 	return min(lh,rh)+1;
@@ -638,7 +713,7 @@ int leftLeafNodeSum(TreeNode *A,bool left)
 
 int minDistanceFromLeafToRoot(TreeNode*A)//SImilar to min height
 {
-	if(A == NULL) return 0;
+	if(A == NULL) return 1;
 	if(A->left ==NULL && A->right == NULL) return 1;
 	int lh = minDistanceFromLeafToRoot(A->left);
 	int rh = minDistanceFromLeafToRoot(A->right);
@@ -1133,9 +1208,10 @@ int  main()
 	//cout<<"numofAllNodes = " <<numberOfAllNodes(root)<<endl;
 	//cout<<"numofLeafNodes = " <<numberOfLeafNodes(root)<<endl;
 	//cout<<"Height of the tree = " <<heightofTree(root)<<endl;
-	//printElementsAtGivenLevel(root,6);
+	//printElementsAtGivenLevel(root,3);
 	//printLevelOrder(root);
 	//printLevelOrderUsingQueue(root);
+	//printLevelReverseOrderUsingQueue(root);
 	// cout<<"leftview = ";
 	// leftView(root,0);
 	// cout<<endl;
@@ -1147,38 +1223,41 @@ int  main()
 	// root = mirrorTree(root);
 	// bool status = checkIdenticalTrees(root,root1);
 	// cout<<status<<endl;
-	// int x = getLevelFromNode(root,9,0);
-	// cout<<"level = "<<x<<endl;
-	// topView(root);
+	//  int x = getLevelFromNode(root,11,0);
+	//  cout<<"level = "<<x<<endl;
+	// topView1(root);
 	// verticalTree(root);
 	// printLevelOrderSum(root);
 	// bool ans = searchElement(root,9);
 	// cout<<ans<<endl;
 	// bool ans = searchElementIterative(root,9);
 	// cout<<ans<<endl;
-	// printSpiral(root);
+	//printLeafNodes(root);
+	//printSpiral(root);
 	// int ht = heightOfTreeIterative(root);
 	// cout<<ht<<endl;
-	// int reee = diameter(root);
-	// cout<<reee<<endl;
+	//  printDiameter(root);
 	// if(isHeightBalanced(root)== -1)cout<<"Not Balanced"<<endl;
 	// else cout<<"Balanced "<<endl;
 	// bool ans = isRootToSumMatchesForGivenNumber(root,26);
 	// cout<<ans<<endl;
-	// vector<int> temp(10);
-	// vector<int> sumRtoL;
-	// printEveryRootToLeafPath(root,temp,0);
+	//  vector<int> temp(10);
+	//  printEveryRootToLeafPath(root,temp,0);
+	
+	// vector<int> sumRtoL; 
 	// sumRtoL = rootToLeafSumValues(root,temp,0);
 	// for(auto b:) sumRtoL
 	// cout<<b<<" ";
 	// int ic = minHeightOfTree(root,temp,0);
 	// cout<<ic<<endl;
+	// int mmm = minHeightOfTree_other_approach(root);
+	// cout<<mmm<<endl;
 	// int  p = leafNodeSum(root);
 	// cout<<p<<endl;
 	// int  p = leftLeafNodeSum(root,true);
 	// cout<<p<<endl;
-	// int q = minDistanceFromLeafToRoot(root);
-	// cout<<q<<endl;
+	int q = minDistanceFromLeafToRoot(root);
+	cout<<q<<endl;
 	// bool we=checkIfAllNodesAreSameLevel(root,0);
 	// cout<<we<<endl;
 	// int a = getDeepestLeftLeafNode(root,0,true);
@@ -1186,8 +1265,8 @@ int  main()
 	// vector<int> seq = {2,5,9,4};
 	// bool qw = rootToLeafSequencePresent(root,seq,0);
 	// cout<<qw<<endl;
-	bool er = ancesstorOfGivenNode(root,9);
-	bool rt = parentNodeValueOfNode(root,11);
+	// bool er = ancesstorOfGivenNode(root,9);
+	// bool rt = parentNodeValueOfNode(root,11);
 	//siblingOfGivenNode(root,9);
 	// bool ty = checkIfTwoNodesAreSibling(root,10,5);
 	// cout<<ty<<endl;
